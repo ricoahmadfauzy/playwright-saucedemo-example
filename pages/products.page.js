@@ -6,6 +6,8 @@ class ProductsPage {
         this.burgerButton = page.locator('#react-burger-menu-btn');
         this.logoutButton = page.locator('#logout_sidebar_link');
         this.loginContainer = page.locator('#login_button_container');
+        this.cartButton = page.locator('[data-test="shopping-cart-link"]');
+        this.cartText = page.locator('[data-test="title"]');
         this.cartBadge = page.locator('[data-test="shopping-cart-badge"]');
         this.addedProducts = [];
     }
@@ -71,6 +73,11 @@ class ProductsPage {
             await this.removeProductFromCart(product);
             await expect(this.getAddToCartLocator(product)).toBeVisible();
         }
+    }
+
+    async gotoCartPage() {
+        await await this.cartButton.click();
+        await expect(this.cartText).toContainText('Your Cart');
     }
 
 }
