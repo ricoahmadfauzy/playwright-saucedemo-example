@@ -8,7 +8,7 @@ test.describe('Add Products Feature', () => {
         
         await productsPage.addProductToCart('Sauce Labs Backpack');
 
-        await productsPage.expectCartCount();
+        await productsPage.assertCartCount();
     });
 
     test('user can add multiple products', async ({ authenticatedPage }) => {
@@ -21,7 +21,7 @@ test.describe('Add Products Feature', () => {
         
         await productsPage.addMultipleProducts(products);
 
-        await productsPage.expectCartCount();
+        await productsPage.assertCartCount();
     });
 
 });
@@ -34,11 +34,11 @@ test.describe('Remove Products Feature', () => {
         
         await productsPage.addProductToCart(product);
 
-        await productsPage.expectCartCount();
+        await productsPage.assertCartCount();
 
         await productsPage.removeProductFromCart(product);
 
-        await productsPage.expectCartCount();
+        await productsPage.assertCartCount();
     });
 
     test('user can remove multiple products', async ({ authenticatedPage }) => {
@@ -51,10 +51,10 @@ test.describe('Remove Products Feature', () => {
         
         await productsPage.addMultipleProducts(products);
 
-        await productsPage.expectCartCount();
+        await productsPage.assertCartCount();
 
         await productsPage.removeAllProducts(products);
 
-        await productsPage.expectCartCount();
+        await productsPage.assertCartCount();
     });
 });

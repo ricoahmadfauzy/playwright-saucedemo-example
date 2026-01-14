@@ -46,7 +46,7 @@ class ProductsPage {
         this.addedProducts = this.addedProducts.filter(p => p !== productName);
     }
 
-    async expectCartCount() {
+    async assertCartCount() {
         const count = this.addedProducts.length;
         if (count === 0) {
             const exsits = await this.cartBadge.count();
