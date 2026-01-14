@@ -36,8 +36,8 @@ npm -v
 ## 📥 Installation
 ### Clone the Repository
 ```bash
-git clone https://github.com/ricoahmadfauzy/Kawan-lama-automation.git
-cd playwright-project
+git clone https://github.com/ricoahmadfauzy/playwright-saucedemo-example.git
+cd playwright-saucedemo-example
 ```
 ### Install Dependencies
 ```bash
