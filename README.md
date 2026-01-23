@@ -77,4 +77,8 @@ npx playwright test --ui
 ---
 
 ## 👤 Author
-### [Rico Ahmad Fauzy](https://www.linkedin.com/in/ricoahmadfauzy/)
+<p>
+  <a href="https://www.linkedin.com/in/ricoahmadfauzy/" target="_blank">
+    <img src="https://avatars.githubusercontent.com/u/12437652?v=4" width="100" alt="Rico Ahmad Fauzy"/>
+  </a>
+</p>
