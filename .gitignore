@@ -6,6 +6,8 @@ node_modules/
 
 # reports
 test-results/
+smart-report/
+*test-history.json
 
 # OS
 .DS_Store
