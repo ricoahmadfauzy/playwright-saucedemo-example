@@ -10,6 +10,7 @@ class CartPage {
         this.lastNameInput = page.locator('#last-name');
         this.postalCodeInput = page.locator('#postal-code');
         this.continueButton = page.locator('#continue');
+        this.alertInformationText = page.locator('[data-test="error"]');
     }
 
     getCartItemLocator(productName) {
@@ -93,6 +94,18 @@ class CartPage {
         await this.lastNameInput.fill(lastName);
         await this.postalCodeInput.fill(postalCode);
         await this.continueButton.click();
+    }
+
+    async assertInformationFirstName() {
+        await expect(this.alertInformationText).toContainText('Error: First Name is required');
+    }
+
+    async assertInformationLastName() {
+        await expect(this.alertInformationText).toContainText('Error: Last Name is required');
+    }
+
+    async assertInformationPostalCode() {
+        await expect(this.alertInformationText).toContainText('Error: Postal Code is required');
     }
 }
 

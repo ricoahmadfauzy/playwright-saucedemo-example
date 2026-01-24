@@ -224,6 +224,98 @@ test.describe('Remove Products To Cart Feature', () => {
 });
 
 test.describe('Add Products To Checkout Feature', () => {
+    test('user fill all blank field in checkout information ', async ({ authenticatedPage }) => {
+        const productsPage = new ProductsPage(authenticatedPage);
+        const cartPage = new CartPage(authenticatedPage);
+        const checkoutPage = new CheckoutPage(authenticatedPage);
+
+        const product = 'Sauce Labs Backpack';
+        
+        await productsPage.addProductToCart(product);
+
+        await productsPage.assertCartCount();
+
+        await productsPage.gotoCartPage();
+
+        await cartPage.assertProductInCart(product);
+
+        await cartPage.assertCartCount(1);
+
+        await cartPage.gotoCheckoutPage('', '', '')
+
+        await cartPage.assertInformationFirstName();
+
+    });
+
+    test('user fill blank first name field in checkout information ', async ({ authenticatedPage }) => {
+        const productsPage = new ProductsPage(authenticatedPage);
+        const cartPage = new CartPage(authenticatedPage);
+        const checkoutPage = new CheckoutPage(authenticatedPage);
+
+        const product = 'Sauce Labs Backpack';
+        
+        await productsPage.addProductToCart(product);
+
+        await productsPage.assertCartCount();
+
+        await productsPage.gotoCartPage();
+
+        await cartPage.assertProductInCart(product);
+
+        await cartPage.assertCartCount(1);
+
+        await cartPage.gotoCheckoutPage('', process.env.LASTNAME, process.env.POSTALCODE)
+
+        await cartPage.assertInformationFirstName();
+
+    });
+
+    test('user fill blank last name field in checkout information ', async ({ authenticatedPage }) => {
+        const productsPage = new ProductsPage(authenticatedPage);
+        const cartPage = new CartPage(authenticatedPage);
+        const checkoutPage = new CheckoutPage(authenticatedPage);
+
+        const product = 'Sauce Labs Backpack';
+        
+        await productsPage.addProductToCart(product);
+
+        await productsPage.assertCartCount();
+
+        await productsPage.gotoCartPage();
+
+        await cartPage.assertProductInCart(product);
+
+        await cartPage.assertCartCount(1);
+
+        await cartPage.gotoCheckoutPage(process.env.FIRSTNAME, '', process.env.POSTALCODE)
+
+        await cartPage.assertInformationLastName();
+
+    });
+
+    test('user fill blank postal code field in checkout information ', async ({ authenticatedPage }) => {
+        const productsPage = new ProductsPage(authenticatedPage);
+        const cartPage = new CartPage(authenticatedPage);
+        const checkoutPage = new CheckoutPage(authenticatedPage);
+
+        const product = 'Sauce Labs Backpack';
+        
+        await productsPage.addProductToCart(product);
+
+        await productsPage.assertCartCount();
+
+        await productsPage.gotoCartPage();
+
+        await cartPage.assertProductInCart(product);
+
+        await cartPage.assertCartCount(1);
+
+        await cartPage.gotoCheckoutPage(process.env.FIRSTNAME, process.env.LASTNAME, '')
+
+        await cartPage.assertInformationPostalCode();
+
+    });
+
     test('user can add product until finish order', async ({ authenticatedPage }) => {
         const productsPage = new ProductsPage(authenticatedPage);
         const cartPage = new CartPage(authenticatedPage);
